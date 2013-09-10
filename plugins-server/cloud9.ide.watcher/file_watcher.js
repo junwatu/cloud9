@@ -69,6 +69,7 @@ util.inherits(FileWatcher, EventEmitter);
 
     this.close = function() {
         if (this.watcher) {
+			console.log(this.watcher);
             this.watcher.removeAllListeners();
             this.watcher.close();
             this.emit("close");

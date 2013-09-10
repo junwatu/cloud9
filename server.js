@@ -35,8 +35,8 @@ for (var p = 2; p < process.argv.length; p++) {
        debug = true;
 
        // apf debug doesn't exist, or it's older than three days--rebuild it
-       if(!path.existsSync("plugins-client/lib.apf/www/apf-packaged/apf_debug.js") ||
-          (path.existsSync("plugins-client/lib.apf/www/apf-packaged/apf_debug.js")) &&
+       if(!fs.existsSync("plugins-client/lib.apf/www/apf-packaged/apf_debug.js") ||
+          (fs.existsSync("plugins-client/lib.apf/www/apf-packaged/apf_debug.js")) &&
           ((new Date() - fs.statSync("plugins-client/lib.apf/www/apf-packaged/apf_debug.js").mtime.valueOf()) / 86400000) >= 3) {
            console.log("Building apfdebug for first run...");
 
@@ -68,7 +68,7 @@ for (var p = 2; p < process.argv.length; p++) {
 
        configName = "packed";
 
-       if(!path.existsSync("plugins-client/lib.packed/www/" + packedName) && !path.existsSync("plugins-client/lib.packed/www/" + packedName + ".gz")) {
+       if(!fs.existsSync("plugins-client/lib.packed/www/" + packedName) && !fs.existsSync("plugins-client/lib.packed/www/" + packedName + ".gz")) {
            console.log("Building packed file for first run...Please wait...");
            console.log("   |\\      _,,,---,,_\n" +
                        "   /,`.-'`'    -.  ;-;;,_\n" +
